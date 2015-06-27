@@ -25,7 +25,7 @@
                                                         ([] (deliver latch nil))
                                                         ([row]
                                                          (metrics/record-read! metrics-ctx)
-                                                         (let [bts (.getBytes (utils/vect->str delimiter quote (vals row)) "UTF-8")]
+                                                         (let [bts (.getBytes (utils/vect->str delimiter quote row) "UTF-8")]
                                                            (.write out bts)
                                                            (.write out NEW-LINE-BTS)
                                                            (metrics/bytes-written! metrics-ctx (inc (count bts)))))))))))

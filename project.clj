@@ -16,6 +16,7 @@
             :dependencies [[org.clojure/clojure "1.7.0-RC1"]
                            [org.apache.commons/commons-lang3 "3.4"]
                            [sjdbc "0.1.0"]
+                           [org.xerial.snappy/snappy-java "1.1.2-M1"]
                            [org.clojure/tools.cli "0.3.1"]
                            [org.clojure/tools.logging "0.3.1"]
                            [metrics-clojure "2.4.0"]

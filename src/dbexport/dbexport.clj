@@ -2,7 +2,8 @@
   (:require [clojure.tools.cli :refer [parse-opts]]
             [dbexport.config :as config]
             [clojure.string :as string]
-            [dbexport.export :as export])
+            [dbexport.export :as export]
+            [dbexport.metrics :as metrics])
   (:gen-class))
 
 (def cli-options
@@ -56,7 +57,7 @@
   (let [start (System/currentTimeMillis)
         {:keys [latch metrics-ctx]} (export/run-export! conf)]
     @latch
-    ))
+    (prn "Read " (metrics/number-of-records metrics-ctx) " in " (- (System/currentTimeMillis) start) "ms")))
 
 (defn parse-options [args]
   (parse-opts args cli-options))

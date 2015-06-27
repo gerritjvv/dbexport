@@ -4,7 +4,7 @@
 (def DEFAULT-JDBC "jdbc:mysql://localhost:3306/mysql?connectTimeout=0&socketTimeout=0&autoReconnect=true")
 (defonce DEFAULT-DB-USER "root")
 (defonce DEFAULT-DB-PASSWORD nil)
-(defonce DEFAULT-ENCLOSED nil)
+(defonce DEFAULT-QUOTE "")
 (defonce DEFAULT-DELIMITER ",")
 (defonce DEFAULT-COMPRESSION-CODECS #{:gzip :snappy :none})
 (defonce DEFAULT-COMPRESSION-CODEC :gzip)

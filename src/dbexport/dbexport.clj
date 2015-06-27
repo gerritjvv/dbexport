@@ -30,7 +30,7 @@
    ["-D" "--delimiter delimiter" "What field separator default is ,"
     :default config/DEFAULT-DELIMITER]
    ["-E" "--quote quote" "Character to use to enclose fields default is nil"
-    :default config/DEFAULT-ENCLOSED]
+    :default config/DEFAULT-QUOTE]
 
    ["-h" "--help"]])
 

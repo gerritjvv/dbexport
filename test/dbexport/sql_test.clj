@@ -7,6 +7,7 @@
 
 (defn setup-db [jdbc user password]
   (let [conn (sjdbc/open jdbc user password {})]
+    (sjdbc/exec conn "DROP TABLE IF EXISTS test")
     (sjdbc/exec conn "CREATE TABLE test (id int, name varchar)")
     (dotimes [i 100]
       (sjdbc/exec conn "INSERT INTO test (id, name) values (?, ?)" 1 "abc"))

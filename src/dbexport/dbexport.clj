@@ -23,7 +23,7 @@
     :parse-fn config/parse-query-arg]
 
    ["-f" "--file filename" "The file to output the data to"]
-   ["-c" "--compression compression" (str "Can be " (map str config/DEFAULT-COMPRESSION-CODECS))
+   ["-c" "--compression compression" (str "Can be " (string/join "," (map name config/DEFAULT-COMPRESSION-CODECS) ))
     :defualt config/DEFAULT-COMPRESSION-CODEC
     :parse-fn config/parse-compression-arg]
 

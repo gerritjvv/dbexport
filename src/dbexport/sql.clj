@@ -16,8 +16,7 @@
   (let [conn (sjdbc/open jdbc user password {})
         f2 (f-out state)]
     (try
-      (doseq [row (sjdbc/query conn query)]
-        (f2 row))
+      (sjdbc/query conn query f2)
       (finally
         (do
           (sjdbc/close conn)

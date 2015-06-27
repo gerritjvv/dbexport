@@ -23,7 +23,7 @@ Options:
   -p, --password password                   DB password
   -q, --query select-query                  db select query to use in the export
   -f, --file filename                       The file to output the data to
-  -c, --compression compression             Can be clojure.lang.LazySeq@14bddd8a
+  -c, --compression compression             Can be gzip, snappy, none
   -D, --delimiter delimiter      ,          What field separator default is ,
   -E, --quote quote                         Character to use to enclose fields default is nil
   -h, --help

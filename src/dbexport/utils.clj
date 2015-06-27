@@ -16,16 +16,19 @@
       (.append (str quote)))))
 
 (defn escape-string
-  "Escape remove new lines tabs ' and \""
+  "Escape remove new lines tabs ' and \"
+   If s is not a string its returned as is"
   [s]
-  (-> s
-      (StringUtils/replace "\n" "")
-      (StringUtils/replace "'" "")
-      (StringUtils/replace "\t" " ")
-      (StringUtils/replace "\"" "")))
+  (if (instance? String s)
+    (-> s
+        (StringUtils/replace "\n" "")
+        (StringUtils/replace "'" "")
+        (StringUtils/replace "\t" " ")
+        (StringUtils/replace "\"" ""))
+    s))
 
 
-(defn vect->str
+(defn ^String vect->str
   "Translates the coll v into a string where each item in row is escaped and delimited by delimiter and quoted by quote"
   [delimiter quote v]
   (join v delimiter (comp (partial quote-string quote) escape-string)))

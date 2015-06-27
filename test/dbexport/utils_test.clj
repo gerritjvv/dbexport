@@ -6,6 +6,8 @@
 (deftest testescape []
                     (is (= (utils/escape-string "hi ' \"this\"\tmy") "hi  this my")))
 
+(deftest testescape-number []
+                           (is (= (utils/escape-string 1) 1)))
 
 (deftest testquote []
                    (is (= (utils/quote-string "'" "hi") "'hi'")))

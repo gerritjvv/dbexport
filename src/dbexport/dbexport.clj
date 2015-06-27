@@ -29,7 +29,7 @@
 
    ["-D" "--delimiter delimiter" "What field separator default is ,"
     :default config/DEFAULT-DELIMITER]
-   ["-E" "--enclosed enclosed" "Character to use to enclose fields default is nil"
+   ["-E" "--quote quote" "Character to use to enclose fields default is nil"
     :default config/DEFAULT-ENCLOSED]
 
    ["-h" "--help"]])
@@ -53,10 +53,11 @@
   (println msg)
   (System/exit status))
 
-(defn run-export! [{:keys [threads iterations] :as conf}]
+(defn run-export! [conf]
   (let [start (System/currentTimeMillis)
         {:keys [latch metrics-ctx]} (export/run-export! conf)]
     @latch
+    (prn "Wrote " (metrics/bytes-written metrics-ctx) " bytes")
     (prn "Read " (metrics/number-of-records metrics-ctx) " in " (- (System/currentTimeMillis) start) "ms")))
 
 (defn parse-options [args]

@@ -10,7 +10,7 @@
                                        file
                                        compression
                                        delimiter
-                                       enclosed
+                                       quote
                                        query]} :options}
                               (dbexport/parse-options ["--jdbc=abc"
                                                        "--user=db"
@@ -19,7 +19,7 @@
                                                        "--compression=gzip"
                                                        "--delimiter=|"
                                                        "--query=\"select * from table\""
-                                                       "--enclosed=\""])]
+                                                       "--quote=\""])]
 
                           (is (= jdbc "abc"))
                           (is (= user "db"))
@@ -27,5 +27,5 @@
                           (is (= file "myfile"))
                           (is (= compression :gzip))
                           (is (= delimiter "|"))
-                          (is (= enclosed "\""))
+                          (is (= quote "\""))
                           (is (= query "select * from table"))))

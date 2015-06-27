@@ -34,9 +34,11 @@
 
 (defn number-of-records
   "Return the number of records reads"
-  [ctx])
+  [{:keys [records-counter]}]
+  (counter/value records-counter))
 
 (defn bytes-written
   "Return the number of bytes written"
-  [ctx])
+  [{:keys [bytes-counter]}]
+  (counter/value bytes-counter))
 

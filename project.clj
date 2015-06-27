@@ -20,4 +20,5 @@
                            [org.clojure/tools.cli "0.3.1"]
                            [org.clojure/tools.logging "0.3.1"]
                            [metrics-clojure "2.4.0"]
-                           [mysql/mysql-connector-java "5.1.35"]])
+                           [mysql/mysql-connector-java "5.1.35"]
+                           [hsqldb/hsqldb "1.8.0.10" :scope "test"]])

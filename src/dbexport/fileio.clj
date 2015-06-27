@@ -22,5 +22,5 @@
   [{:keys [compression file] :as state} f]
   {:pre [(keyword? compression) file (fn? f)]}
   (let [f2 (f state)]
-    (with-open [out (create-compression-stream file compression)]
+    (with-open [^DataOutputStream out (create-compression-stream file compression)]
       (f2 out))))

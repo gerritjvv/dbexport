@@ -27,12 +27,10 @@
   (let [conn (sjdbc/open jdbc user password {})
         f2 (f-out state)]
     (try
-      (sjdbc/query-with-rs conn query (fn [^ResultSet rs]
-                                        (.setFetchSize rs (int 100000))
-                                        (let [colcount (inc (.getColumnCount (.getMetaData rs)))]
-                                          (while (.next rs)
-                                            (f2 (rs->seq rs (long colcount) 1))))
-                                        (.close rs)))
+      (sjdbc/query-streaming-rs conn query (fn [^ResultSet rs]
+                                             (let [colcount (inc (.getColumnCount (.getMetaData rs)))]
+                                               (while (.next rs)
+                                                 (f2 (rs->seq rs (long colcount) 1))))))
       (finally
         (do
           (sjdbc/close conn)

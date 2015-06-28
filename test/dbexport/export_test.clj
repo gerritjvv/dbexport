@@ -26,5 +26,8 @@
                                                   :compression :gzip})]
                          @latch))
 
-                     (is (= (util/read-gzip file) "'1','abc'"))))
+                     (prn "read-gzip")
+                     (is (= (util/read-gzip file) "'1','abc'")))
+                   (prn "complete!")
+                   (shutdown-agents))
 

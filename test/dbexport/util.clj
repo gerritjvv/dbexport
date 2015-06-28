@@ -9,7 +9,7 @@
     (with-open [in (BufferedReader. (InputStreamReader. in))]
       (loop []
         (if-let [line (.readLine in)]
-          (.append buff line)
+          (do (prn line ) (.append buff line))
           (recur))))
     (.toString buff)))
 

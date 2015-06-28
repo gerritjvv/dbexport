@@ -1,4 +1,4 @@
-(defproject dbexport "0.1.0-SNAPSHOT"
+(defproject dbexport "0.1.0"
             :description "db export library to a delimited compressed output"
             :url "https://github.com/gerritjvv/sjdbc"
             :license {:name "Eclipse Public License"
@@ -15,7 +15,8 @@
 
             :dependencies [[org.clojure/clojure "1.7.0-RC1"]
                            [org.apache.commons/commons-lang3 "3.4"]
-                           [sjdbc "0.1.1"]
+                           [sjdbc "0.1.2"]
+                           [fun-utils "0.5.9"]
                            [org.xerial.snappy/snappy-java "1.1.2-M1"]
                            [org.clojure/tools.cli "0.3.1"]
                            [org.clojure/tools.logging "0.3.1"]
